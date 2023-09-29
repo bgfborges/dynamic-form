@@ -1,5 +1,14 @@
 # Dynamic Form Builder with React, Redux, and TypeScript
 
+## Table of Contents
+- [Overview](#overview)
+- [Project Structure](#project-structure)
+- [Power of the Architecture](#power-of-the-architecture)
+- [Extending the Architecture](#extending-the-architecture)
+- [Live Demo](#live-demo)
+- [Installation](#installation)
+- [Creating a Form File](#creating-a-form-file)
+
 ## Overview
 This project implements a dynamic form builder using React, Redux, and TypeScript. The goal is to create a flexible and reactive form system that allows you to build and manage forms dynamically based on data received from the Redux store. The architecture follows key principles such as event-driven design and reactivity to store actions.
 
@@ -54,4 +63,95 @@ Extend the architecture to handle form validation and submission logic. You can 
 
 Implement version control for forms, allowing you to track changes and maintain a history of form configurations. This feature can be invaluable when auditing and troubleshooting form-related issues.
 
-In summary, the dynamic form builder architecture presented here lays the foundation for a highly adaptable and extensible system. By combining backend integration, form schema generation, user-friendly customization, and validation, you can create a comprehensive solution for managing and deploying dynamic forms in your application. This approach empowers both developers and non-developers to efficiently work with forms, enhancing the overall flexibility and maintainability of your application.
+## Live Demo
+Check out the live version of the improved code on the [Dynamic Form Builder Demo](https://dynamic-form-qy5tlci14-bgfborges.vercel.app/).
+
+## Installation
+To run the project locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/bgfborges/dynamic-form-builder.git
+   cd dynamic-form-builder
+   npm install
+   npm start
+   ```
+2. Open your web browser and access the application at http://localhost:3000.
+
+## Creating a Form File
+To create a new form file, follow this template structure:
+
+./src/constants/forms/<form-id-name>.ts
+```typescript
+export const contactForm = {
+    settings: {
+        id: "contact-12345",
+        submitButton: "Send Message",
+        formTitle: "Contact Us"
+    },
+    fields: [
+        {
+            type: "text",
+            label: "Full Name",
+            name: "full_name"
+        },
+        {
+            type: "email",
+            label: "Email Address",
+            name: "email"
+        },
+        {
+            type: "textarea",
+            label: "Message",
+            name: "message"
+        }
+    ]
+};
+```
+
+./src/constants/formConstants.ts
+```typescript
+import { contactForm } from './forms/contact-12345';
+import { loginForm } from './forms/login-56789';
+
+export const REQUEST_FORM_COMPONENT = 'REQUEST_FORM_COMPONENT';
+export const SUBMIT_FORM_COMPONENT = 'SUBMIT_FORM_COMPONENT';
+
+export const CONTACT_FORM = 'contact-12345';
+export const LOGIN_FORM = 'login-56789';
+
+export const FORM_MAP = {
+    [CONTACT_FORM]: contactForm,
+    [LOGIN_FORM]: loginForm,
+};
+```
+Once you've created a form file, you can use it in the application as shown in the example below:
+
+```typescript
+import DisplayResultsC from '../../components/DisplayResults/DisplayResultsC';
+import FormC from '../../components/Form/FormC';
+import { Section } from '../../components/Section/Section';
+
+import { 
+    CONTACT_FORM as CONTACT_FORM_ID,
+    LOGIN_FORM as LOGIN_FORM_ID,
+} from '../../constants/formConstants';
+
+export const Contact = () => {
+    const Forms = () => {
+        return (
+            <>
+                <FormC id={CONTACT_FORM_ID} />
+                <FormC id={LOGIN_FORM_ID} />
+            </>
+        );
+    };
+ 
+    return (
+        <Section 
+            sidebar={<DisplayResultsC />}
+            page={<Forms />}
+        />
+    );
+}; 
+```
