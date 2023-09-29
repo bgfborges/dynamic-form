@@ -9,6 +9,9 @@
 - [Installation](#installation)
 - [Creating a Form File](#creating-a-form-file)
 
+## Live Demo
+Check out the live version of the improved code on the [Dynamic Form Builder Demo](https://dynamic-form-qy5tlci14-bgfborges.vercel.app/).
+
 ## Overview
 This project implements a dynamic form builder using React, Redux, and TypeScript. The goal is to create a flexible and reactive form system that allows you to build and manage forms dynamically based on data received from the Redux store. The architecture follows key principles such as event-driven design and reactivity to store actions.
 
@@ -62,9 +65,6 @@ Extend the architecture to handle form validation and submission logic. You can 
 ### 5. Form Versioning and History
 
 Implement version control for forms, allowing you to track changes and maintain a history of form configurations. This feature can be invaluable when auditing and troubleshooting form-related issues.
-
-## Live Demo
-Check out the live version of the improved code on the [Dynamic Form Builder Demo](https://dynamic-form-qy5tlci14-bgfborges.vercel.app/).
 
 ## Installation
 To run the project locally, follow these steps:
@@ -146,12 +146,12 @@ export const Contact = () => {
             </>
         );
     };
-
+ 
     return (
         <Section 
             sidebar={<DisplayResultsC />}
             page={<Forms />}
         />
     );
-};
+}; 
 ```
