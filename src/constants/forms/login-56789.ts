@@ -2,7 +2,7 @@ export const loginForm = {
     settings: {
         id: "login-56789",
         submitButton: "Log In",
-        formTitle: "Log In to Your Account"
+        formTitle: "Access Your Account"
     },
     fields: [
         {

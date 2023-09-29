@@ -3,6 +3,7 @@ import { FormEvent } from "react";
 import { IField, IFormData } from "../../interfaces/IFormData"
 import { InputField } from "../InputField/InputField";
 import { SelectField } from "../SelectField/SelectField";
+import { Button } from "./styled";
 
 interface IForm {
     data: IFormData
@@ -30,7 +31,7 @@ export const Form = ({ data, onSubmission }: IForm) => {
                 )
             }
 
-            <button type='submit'>{get(settings, 'submitButton')}</button>
+            <Button type='submit'>{get(settings, 'submitButton')}</Button>
         </form>
     )
 }

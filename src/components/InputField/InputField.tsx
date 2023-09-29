@@ -1,10 +1,11 @@
 import { IField } from "../../interfaces/IFormData"
+import { Input, Label } from "./styles"
 
 export const InputField = ({ type, label }: IField) => {
     return (
         <div>
-            <label>{label}</label>
-            <input name={label} type={type} />
+            <Label>{label}</Label>
+            <Input name={label} type={type} />
         </div>
     )
 }

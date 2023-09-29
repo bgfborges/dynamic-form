@@ -11,6 +11,12 @@ export const contactForm = {
             name: "full_name"
         },
         {
+            type: "select",
+            label: "Select Priority",
+            name: "priority",
+            options: ['low', 'middle', 'high']
+        },
+        {
             type: "email",
             label: "Email Address",
             name: "email"

@@ -38,7 +38,11 @@ const FormC: React.FC<IFormC> = ({ formData, id, dispatch }) => {
   const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const data = Object.fromEntries(new FormData(event.currentTarget));
+    const data = Object.fromEntries(new FormData(event.currentTarget))
+
+    // IMPROVEMENTS
+    // Extend the handleFormSubmit to be unscoped from the component controller
+    // Then, having a specific file for each form (which can be received or local writen like the current filds)
 
     dispatch({
         type: SUBMIT_FORM_COMPONENT,
